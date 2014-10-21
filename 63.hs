@@ -5,6 +5,8 @@
 -- Si 10^(n-1) > 9^n, ese n no tiene chances. Pero
 -- Esto pasa a partir de n = 22 (induccion + verificar el caso). Luego n es a lo mas 21.
 
+works :: Integer -> Integer -> Bool
 works a n =  10^(n-1) <= a^n -- a in [1..9]
 
+main :: IO ()
 main = print $ length [(a^n,a,n) | a <- [1..9], n <- [1..21], works a n]

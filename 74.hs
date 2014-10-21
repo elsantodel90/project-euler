@@ -2,9 +2,10 @@ import Data.Array
 import Elsantodel90.Digits
 import Elsantodel90.Combinatorics
 
-
+f :: Int -> Integer
 f = sum . map (factorialsArray 10 !) . rightToLeftDigits
 
+len :: Integer -> Integer
 -- Length 1 loops calculated using main2
 len 1     = 1
 len 2     = 1
@@ -23,6 +24,8 @@ len 45362 = 2
 
 len x = 1 + len (f $ fromInteger x)
 
-main2 = mapM_ print $ filter (\x -> f x == toInteger x) [1..1000000]
+_main2 :: IO ()
+_main2 = mapM_ print $ filter (\x -> f x == toInteger x) [1..1000000]
 
+main :: IO ()
 main = print . length $ filter ((==60) . len) [1..1000000-1]
