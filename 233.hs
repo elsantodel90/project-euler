@@ -21,13 +21,14 @@ import Data.Array.Unboxed
 import Elsantodel90.Primes
 
 upperBound :: Integer
-upperBound = 10^11
+upperBound = 10^(11::Int)
 
 maxMultiplier :: Int
-maxMultiplier = fromInteger $ upperBound `div` (5^3 * 13^2)
+maxMultiplier = fromInteger $ upperBound `div` (5*5*5 * 13*13)
 
+goodMultiplier :: Int -> Bool
 goodMultiplier = not . any badFactor . factorUsingArray (factorArray $ maxMultiplier)
-                    where badFactor (p,e) = p `mod` 4 == 1
+                    where badFactor (p,_) = p `mod` 4 == 1
 
 multiplierCount :: Array Int Integer
 multiplierCount = array (0,maxMultiplier) ((0,0): arrayList )
@@ -35,26 +36,32 @@ multiplierCount = array (0,maxMultiplier) ((0,0): arrayList )
                           term i | goodMultiplier i = toInteger i
                                  | otherwise        = 0
 
+primes :: [Integer]
 primes = map toInteger . filter (\x -> x `mod` 4 == 1) $ filter (primesUpToArray 10000000 !) [1..]
 
-superList1 = [p *q^2 * r^3 | p <- takeWhile (<= pBound) primes, 
-                             q <- takeWhile (\q -> q^2 <= qBound p) primes,
-                             p /= q,
-                             r <- takeWhile (\r -> r^3 <= rBound p q) primes,
-                             r /= p, r /= q]
-                 where pBound     = upperBound `div` (5^3 * 13^2)
-                       qBound p   = upperBound `div` (p * 5^3)
-                       rBound p q = upperBound `div` (p * q^2)
+superList1 :: [Integer]
+superList1 = [p *q*q * r*r*r | p <- takeWhile (<= pBound) primes, 
+                               q <- takeWhile (\q -> q*q <= qBound p) primes,
+                               p /= q,
+                               r <- takeWhile (\r -> r*r*r <= rBound p q) primes,
+                               r /= p, r /= q]
+                 where pBound     = upperBound `div` (5*5*5 * 13*13)
+                       qBound p   = upperBound `div` (p * 5*5*5)
+                       rBound p q = upperBound `div` (p * q*q)
 
+superList2 :: Integer -> Integer -> [Integer]
 superList2 i j = [p^i * q^j | p <- takeWhile (\p -> p^i <= pBound) primes, 
                               q <- takeWhile (\q -> q^j <= qBound p) primes,
                               p /= q]
                  where pBound     = upperBound `div` (5^j)
                        qBound p   = upperBound `div` (p^i)
 
+superList :: [Integer]
 superList = superList1 ++ superList2 3 7 ++ superList2 2 10
 
+countSolutions :: Integer -> Integer
 countSolutions x = x * multiplierCount ! (fromInteger $ upperBound `div` x)
 
+main :: IO ()
 main = print . sum $ map countSolutions superList
 

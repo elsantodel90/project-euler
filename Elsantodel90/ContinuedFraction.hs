@@ -7,15 +7,18 @@ module Elsantodel90.ContinuedFraction(ContinuedFraction,
                                       cuadraticRealContinuedFraction,
                                       cuadraticRealContinuedFractionPeriod) where
 
-import Elsantodel90.BinarySearch
 import Data.Ratio
 import Data.List
+import Elsantodel90.BinarySearch
+import Elsantodel90.IntPot
+import Prelude hiding ((^))
 
 type ContinuedFraction = [Integer]
 
 convergent :: Fractional a => Integer -> ContinuedFraction -> a
 convergent i (x:xs) | i == 0    = fromInteger x
                     | otherwise = fromInteger x + 1 / convergent (i-1) xs
+convergent _ _  = error "La fraccion continua en convergent se agoto!"
 
 convergents :: Fractional a => ContinuedFraction -> [a]
 convergents c = [convergent i c | i <- [0..]]
@@ -48,6 +51,7 @@ periodWithPrev :: FullContinuedFraction ->  FullContinuedFraction  -> Int
 periodWithPrev prev (x:xs) = case elemIndex x prev of
                                   Nothing -> periodWithPrev (x:prev) xs
                                   Just n  -> n + 1
+periodWithPrev _ _ = error "La fraccion continua en periodWithPrev se agoto!!!!"
 
 cuadraticRealContinuedFractionPeriod :: Rational -> Rational -> Integer -> Int
 cuadraticRealContinuedFractionPeriod a b = periodWithPrev [] . cuadraticRealFullContinuedFraction a b

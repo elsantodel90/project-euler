@@ -1,6 +1,7 @@
 import Data.Maybe
-import Elsantodel90.BinarySearch
 import Elsantodel90.Numeric
+import Elsantodel90.IntPot
+import Prelude hiding ((^))
 
 -- Despejando notamos que debe ser (2B-1)^2 = T^2 + (T-1)^2
 -- En otras palabras, T-1 , T, 2B-1 ha de ser terna pitagorica primitiva.
@@ -9,14 +10,10 @@ import Elsantodel90.Numeric
 -- De ahi que 2xy es aprox 2(1+raiz 2)y^2
 -- Como queremos que sea al menos 10^12, 2(1+raiz 2)y^2 = 10^12 => y es aprox 455090
 
+isSquare :: Integer -> Bool
 isSquare n = (integerSqrt 1 n)^2 == n
 
-isTriangular n = b * (b-1) == n
-                   where f k = k*(k-1) < n
-                         b   = snd $ binarySearch f 0 n
-
-goodT t = isTriangular $ (t * (t-1)) `div` 2
-
+tryY :: Integer -> Maybe (Integer, Integer)
 tryY y | isSquare root1 = Just $ ((x1^2 + y^2 + 1) `div` 2, x1^2 - y^2)
        | isSquare root2 = Just $ ((x2^2 + y^2 + 1) `div` 2, 2 * x2 * y)
        | otherwise      = Nothing
@@ -25,6 +22,7 @@ tryY y | isSquare root1 = Just $ ((x1^2 + y^2 + 1) `div` 2, x1^2 - y^2)
                  x1     = y + integerSqrt 1 root1
                  x2     = y + integerSqrt 1 root2
 
+main :: IO ()
 main = print . fst . head . catMaybes  $ map tryY [450000..]
 
 

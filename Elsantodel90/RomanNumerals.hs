@@ -2,6 +2,7 @@ module Elsantodel90.RomanNumerals(fromNumeral, toNumeral, normalizedNumeral) whe
 
 -- Module assumes upper case
 
+charVal :: Char -> Integer
 charVal 'I' = 1
 charVal 'V' = 5
 charVal 'X' = 10
@@ -9,6 +10,7 @@ charVal 'L' = 50
 charVal 'C' = 100
 charVal 'D' = 500
 charVal 'M' = 1000
+charVal _   = error "Numero romano desconocido!!!"
 
 -- Asumes numeral is valid, that is: Numerals must be arranged in descending order of size (considering substractive pairs).
 fromNumeral :: String -> Integer

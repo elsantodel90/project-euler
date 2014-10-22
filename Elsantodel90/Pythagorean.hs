@@ -1,4 +1,6 @@
 module Elsantodel90.Pythagorean(primitives, triples, primitivesWithMaxX, triplesWithMaxX) where
+import Elsantodel90.IntPot
+import Prelude hiding ((^))
 
 type Triple = (Integer,Integer,Integer)
 

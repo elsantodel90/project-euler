@@ -36,7 +36,7 @@ ops   = [direct (+), direct (-), direct (*), division]
 possibleResults :: [Maybe (Ratio Integer)] -> [Integer]
 possibleResults l = dropWhile (<1) . map numerator . filter (\x -> denominator x == 1). map head . group . sort $ catMaybes [t p [o1,o2,o3] | p <- permutations l, o1 <- ops, o2 <- ops, o3 <- ops, t <- trees ]
              
-value :: Double -> Double -> Double -> Double -> Int
+value :: Integer -> Integer -> Integer -> Integer -> Int
 value a b c d = length . takeWhile id . zipWith (==) [1..] . possibleResults $ map (Just . toRational) [a,b,c,d]
 
 main :: IO ()
