@@ -1,4 +1,3 @@
-import Data.List
 import Data.Bits
 import Data.Char
 import Elsantodel90.Parsing

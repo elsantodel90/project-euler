@@ -1,5 +1,3 @@
-import Elsantodel90.Digits
-
 mix :: [a] -> [[a]] -> [[a]]
 mix elements l = [x : xs | x <- elements, xs <- l]
 

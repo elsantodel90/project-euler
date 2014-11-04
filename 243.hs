@@ -1,4 +1,3 @@
-import Data.List
 import Elsantodel90.Primes
 
 -- Se puede demostrar haciendo cuentitas que dado un numero n, si consideramos cualquier numero que resulta
