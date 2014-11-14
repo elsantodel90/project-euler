@@ -1,4 +1,4 @@
-module Prob1 where
+module Problems.Prob1 where
 
 answer :: Integer
 answer = sum $ filter interesting [1..999]

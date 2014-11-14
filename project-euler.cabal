@@ -29,17 +29,16 @@ library
                    Elsantodel90.Primes,
                    Elsantodel90.Pythagorean,
                    Elsantodel90.RomanNumerals
-  other-modules:    Prob1
 
-test-suite TestSuite1
+test-suite TestSuite
   type:            exitcode-stdio-1.0
-  main-is:         TestSuite1.hs
   ghc-options:     -Wall -rtsopts
   build-depends:   base >= 4, HTF > 0.9
-  other-modules:   
-                  Prob1,
-                  Prob1Test
   hs-source-dirs:  
-                  test,
-                  src
+                  src, 
+                  test 
+  main-is:         TestSuite.hs
+  other-modules:   
+                   Problems.Prob1,
+                   Problems.Prob1Test
 

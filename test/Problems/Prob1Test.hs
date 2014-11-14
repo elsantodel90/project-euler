@@ -1,7 +1,7 @@
 {-# OPTIONS_GHC -F -pgmF htfpp #-}
-module Prob1Test where
+module Problems.Prob1Test where
 
-import Prob1
+import Problems.Prob1
 
 import Test.Framework
 import Test.Framework.TestInterface (Assertion)
