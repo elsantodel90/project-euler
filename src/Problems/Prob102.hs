@@ -17,4 +17,4 @@ containsZero [p1,p2,p3] = sameSign (p1 ^ p2) (p2 ^ p3) (p3 ^ p1)
 containsZero _          = error "containsZero should be applied to a list of exactly three elements"
 
 answer_calculator :: IO Int
-answer_calculator = readFile "102.in" >>= return . length . filter containsZero . map parse . lines
+answer_calculator = readFile "inputs/102.in" >>= return . length . filter containsZero . map parse . lines

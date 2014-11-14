@@ -11,4 +11,4 @@ solve mat = gridDijkstra [(0,1),(1,0), (-1,0)] origins destinations mat
                destinations = [ (i,m-1) | i <- [0..n-1]]
 
 answer_calculator :: IO Integer
-answer_calculator = readFile "82.in" >>= return . solve . map (map read . split ',') . lines
+answer_calculator = readFile "inputs/82.in" >>= return . solve . map (map read . split ',') . lines

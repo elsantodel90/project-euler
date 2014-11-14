@@ -9,4 +9,4 @@ solve mat = gridDijkstra [(0,1),(1,0)] [(0,0)] [(n-1,m-1)] mat
                m = length $ head mat
 
 answer_calculator :: IO Integer
-answer_calculator = readFile "81.in" >>= return . solve . map (map read . split ',') . lines
+answer_calculator = readFile "inputs/81.in" >>= return . solve . map (map read . split ',') . lines

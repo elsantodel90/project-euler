@@ -16,4 +16,4 @@ products mat = concatMap diagAux deltas
                                                       let d = get (ax+3*dx) (ay+3*dy)]
 
 answer_calculator :: IO Integer
-answer_calculator = readFile "11.in" >>= return . maximum . products . map (map read . words) . lines
+answer_calculator = readFile "inputs/11.in" >>= return . maximum . products . map (map read . words) . lines

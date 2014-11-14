@@ -18,4 +18,4 @@ candidates :: [String]
 candidates = permutations "01236789"
 
 answer_calculator :: IO Integer
-answer_calculator = readFile "79.in" >>= return . read . head . (\input -> filter (works input) candidates) . lines
+answer_calculator = readFile "inputs/79.in" >>= return . read . head . (\input -> filter (works input) candidates) . lines

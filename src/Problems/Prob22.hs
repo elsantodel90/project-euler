@@ -10,4 +10,4 @@ scoreWord :: String -> Int
 scoreWord = sum . map scoreChar
 
 answer_calculator :: IO Int
-answer_calculator = readFile "22.in" >>= return . sum . zipWith (*) [1..] . map scoreWord . sort . wordListLineRead
+answer_calculator = readFile "inputs/22.in" >>= return . sum . zipWith (*) [1..] . map scoreWord . sort . wordListLineRead

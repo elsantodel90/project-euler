@@ -5,5 +5,5 @@ solve p = maximum $ foldl1 bestStep p
                                             where dp = zipWith (+) (tail lower) $ zipWith max upper (tail upper)
 
 answer_calculator :: IO Integer
-answer_calculator = readFile "67.in" >>= return . solve . map (map read . words) . lines
+answer_calculator = readFile "inputs/67.in" >>= return . solve . map (map read . words) . lines
 

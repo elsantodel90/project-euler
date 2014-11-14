@@ -23,4 +23,4 @@ decipher :: [Int] -> [Int] -> String
 decipher key = map chr . zipWith xor (cycle key)
 
 answer_calculator :: IO Int
-answer_calculator = readFile "59.in" >>= return . sum . map ord . decipher candidateKey . map read . split ',' . init
+answer_calculator = readFile "inputs/59.in" >>= return . sum . map ord . decipher candidateKey . map read . split ',' . init

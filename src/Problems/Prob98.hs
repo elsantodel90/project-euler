@@ -39,4 +39,4 @@ solve :: [String] -> Integer
 solve = head . catMaybes . map (largestSquareFromList . snd) . sortBy (flip compare) . map (\l -> (length (snd $ head l), map snd l)) . filter ((>=2) . length). groupBy (\a b -> fst a == fst b) . sort . map (\word -> (sort word , word))
 
 answer_calculator :: IO Integer
-answer_calculator = readFile "98.in" >>= return . solve . wordListLineRead
+answer_calculator = readFile "inputs/98.in" >>= return . solve . wordListLineRead

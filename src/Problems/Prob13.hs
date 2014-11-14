@@ -3,4 +3,4 @@ readInteger :: String -> Integer
 readInteger = read
 
 answer_calculator :: IO Integer
-answer_calculator = readFile "13.in" >>= return . read . take 10 . show . sum . map readInteger . lines
+answer_calculator = readFile "inputs/13.in" >>= return . read . take 10 . show . sum . map readInteger . lines

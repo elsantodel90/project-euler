@@ -92,4 +92,4 @@ player1Wins :: Game -> Bool
 player1Wins (hand1, hand2) = score hand1 > score hand2
 
 answer_calculator :: IO Int
-answer_calculator = readFile "54.in" >>= return . length . filter player1Wins . map parseGame . lines
+answer_calculator = readFile "inputs/54.in" >>= return . length . filter player1Wins . map parseGame . lines

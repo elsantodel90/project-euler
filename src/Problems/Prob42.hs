@@ -18,4 +18,4 @@ isTriangleWord :: String -> Bool
 isTriangleWord = isTriangleNumber . wordScore
 
 answer_calculator :: IO Int
-answer_calculator = readFile "42.in" >>= return . length . filter isTriangleWord . wordListLineRead
+answer_calculator = readFile "inputs/42.in" >>= return . length . filter isTriangleWord . wordListLineRead
