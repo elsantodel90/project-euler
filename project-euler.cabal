@@ -40,5 +40,6 @@ test-suite TestSuite
   main-is:         TestSuite.hs
   other-modules:   
                    Problems.Prob1,
-                   Problems.Prob1Test
-
+                   Problems.Prob1Test,
+                   Problems.Prob2,
+                   Problems.Prob2Test
