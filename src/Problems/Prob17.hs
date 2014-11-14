@@ -1,3 +1,4 @@
+module Problems.Prob17 where
 numToString :: Integer -> String
 numToString 1 = "one"
 numToString 2 = "two"
@@ -41,5 +42,5 @@ numToString n | n < 100 = concatMap numToString [tens, unit]
 
 --main = mapM_ (print . numToString) [1..1000]
 
-main :: IO ()
-main = print . length $ concatMap numToString [1..1000]
+
+answer = length $ concatMap numToString [1..1000]

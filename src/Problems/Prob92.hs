@@ -1,3 +1,5 @@
+module Problems.Prob92 where
+
 import Data.Array
 import Elsantodel90.Digits
 import Elsantodel90.IntPot
@@ -18,5 +20,5 @@ loopClass :: Int -> Int
 loopClass n | n <= maxStored = loopClassArray ! n
             | otherwise      = loopClass (f n)
 
-main :: IO ()
-main = print . length $ filter ((==89) . loopClass) [1..10000000]
+
+answer = length $ filter ((==89) . loopClass) [1..10000000]

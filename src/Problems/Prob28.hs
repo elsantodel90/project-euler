@@ -1,3 +1,4 @@
+module Problems.Prob28 where
 import Elsantodel90.IntPot
 import Prelude hiding ((^))
 
@@ -13,5 +14,4 @@ spiral x y | d == 0  = 1
            | otherwise = error "Ups! Case missing! Shame on you!"
                 where d = max (abs x) (abs y)
 
-main :: IO ()
-main = print $ sum [spiral x x + spiral x (-x) | x <- [-500..500]] - 1
+answer = sum [spiral x x + spiral x (-x) | x <- [-500..500]] - 1

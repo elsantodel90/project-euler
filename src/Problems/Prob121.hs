@@ -1,3 +1,5 @@
+module Problems.Prob121 where
+
 import Data.Array
 import Data.Ratio
 
@@ -18,5 +20,4 @@ dpArray = array ((1, -steps), (steps+1, steps)) (baseCases ++ recursiveCases)
 rationalFloor :: Rational -> Integer
 rationalFloor r = numerator r `div` denominator r
 
-main :: IO ()
-main = print $ rationalFloor (1 / (dpArray ! (1,0)))
+answer = rationalFloor (1 / (dpArray ! (1,0)))

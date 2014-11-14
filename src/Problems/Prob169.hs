@@ -1,3 +1,5 @@
+module Problems.Prob169 where
+
 import Data.Bits
 import Data.Array
 import Elsantodel90.IntPot
@@ -22,6 +24,6 @@ dp i c | i == n    = beta (not c)
                         else dpArray ! ((i+1),c)
             where b = testBit num i
 
-main :: IO ()
-main = print $ dpArray ! (0,False)
+
+answer = dpArray ! (0,False)
 

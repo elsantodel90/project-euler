@@ -1,3 +1,4 @@
+module Problems.Prob37 where
 import Data.Array.Unboxed
 import Elsantodel90.Primes
 
@@ -22,5 +23,5 @@ leftTruncatable  = all (primesArray !) . takeWhile (/= 0) . iterate removeFirstD
 truncatable :: Int -> Bool
 truncatable n = leftTruncatable n && rightTruncatable n
 
-main :: IO ()
-main = print . sum $ filter truncatable [11..maxPrime]
+
+answer = sum $ filter truncatable [11..maxPrime]

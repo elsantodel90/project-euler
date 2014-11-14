@@ -1,3 +1,4 @@
+module Problems.Prob44 where
 -- Usando el main2 para buscar, encontramos rapidamente (1560090,7042750), con diferencia 5482660. 
 -- Luego tenemos cota para la diferencia maxima.
 -- Al correr el main, que prueba completamente todas las opciones relativo a esa cota, obtenemos la misma cota,
@@ -40,7 +41,7 @@ getDifferences (a,b) = zipWith diff b $ takeWhile (< head b) a
                         where diff x y | renice x y = x - y
                                        | otherwise  = 0
                         
-main :: IO ()
-main = print . maximum . map maximum . map getDifferences . takeWhile distinctHeads $ iterate advance (pentagonals, tail pentagonals)
+
+answer = maximum . map maximum . map getDifferences . takeWhile distinctHeads $ iterate advance (pentagonals, tail pentagonals)
         where advance (a,b) = (dropWhile (\q -> (b !! 1) - q > maxDiff) a, tail b)
               distinctHeads (l1,l2) = head l1 /= head l2

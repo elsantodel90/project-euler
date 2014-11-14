@@ -1,3 +1,5 @@
+module Problems.Prob11 where
+
 deltas :: [(Int,Int)]
 deltas = [(1,1),(1,0),(0,1),(1,-1)]
 
@@ -13,5 +15,5 @@ products mat = concatMap diagAux deltas
                                                       let c = get (ax+2*dx) (ay+2*dy),
                                                       let d = get (ax+3*dx) (ay+3*dy)]
 
-main :: IO ()
-main = readFile "11.in" >>= print . maximum . products . map (map read . words) . lines
+answer_calculator :: IO Integer
+answer_calculator = readFile "11.in" >>= return . maximum . products . map (map read . words) . lines

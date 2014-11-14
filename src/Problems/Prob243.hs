@@ -1,3 +1,5 @@
+module Problems.Prob243 where
+
 import Elsantodel90.Primes
 
 -- Se puede demostrar haciendo cuentitas que dado un numero n, si consideramos cualquier numero que resulta
@@ -29,5 +31,5 @@ b=94744
 phi :: Integer -> Integer
 phi = toInteger . phiUsingPrimeList (map toInteger $ primesUpTo 10000000) . fromInteger
 
-main :: IO ()            
-main = print . minimum $ filter (\n -> phi n * b < a * (n-1) ) candidates
+
+answer = minimum $ filter (\n -> phi n * b < a * (n-1) ) candidates

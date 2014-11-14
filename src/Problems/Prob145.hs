@@ -1,3 +1,5 @@
+module Problems.Prob145 where
+
 mix :: [a] -> [[a]] -> [[a]]
 mix elements l = [x : xs | x <- elements, xs <- l]
 
@@ -17,5 +19,6 @@ reversiblesWithNDigits :: Int -> Integer
 reversiblesWithNDigits n = 
         sum [reversiblesWithNDigitsGivenPrefix n prefix | prefix <- numbers (n `div` 2)]
 
-main :: IO ()
-main = print . sum $ map reversiblesWithNDigits [1..9]
+
+
+answer = sum $ map reversiblesWithNDigits [1..9]

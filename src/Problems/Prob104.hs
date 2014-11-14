@@ -1,3 +1,5 @@
+module Problems.Prob104 where
+
 import Elsantodel90.IntPot
 import Prelude hiding ((^))
 
@@ -22,5 +24,4 @@ coolFib i mods@(_,b) doubles@(_,bb) = if modularPandigital b && firstPandigital 
                                           then i 
                                           else coolFib (i+1) (fibModularStep mods) (fibDoubleStep doubles)
 
-main :: IO ()
-main = print $ coolFib 1 (0,1) (0.0, 1.0)
+answer = coolFib 1 (0,1) (0.0, 1.0)

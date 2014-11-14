@@ -1,3 +1,4 @@
+module Problems.Prob68 where
 import Data.List
 
 allEqual :: Eq a => [a] -> Bool
@@ -21,5 +22,5 @@ rep l = concat . take 5 . dropWhile (/= minGroup) $ cycle g
             where g        = groups l
                   minGroup = minimum g
 
-main :: IO ()    
-main = putStrLn . maximum . filter ( (==16) . length) . map (concatMap show . rep) . filter magic5gon $ permutations [1..10]
+answer :: Integer    
+answer = read . maximum . filter ( (==16) . length) . map (concatMap show . rep) . filter magic5gon $ permutations [1..10]

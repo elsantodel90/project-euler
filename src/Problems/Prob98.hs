@@ -1,3 +1,5 @@
+module Problems.Prob98 where
+
 import Data.List
 import Data.Maybe
 import Elsantodel90.Parsing
@@ -36,5 +38,5 @@ largestSquareFromList l = maximum [largestSquare a b | a <- l, b <- l, a < b]
 solve :: [String] -> Integer
 solve = head . catMaybes . map (largestSquareFromList . snd) . sortBy (flip compare) . map (\l -> (length (snd $ head l), map snd l)) . filter ((>=2) . length). groupBy (\a b -> fst a == fst b) . sort . map (\word -> (sort word , word))
 
-main :: IO ()
-main = readFile "98.in" >>= print . solve . wordListLineRead
+answer_calculator :: IO Integer
+answer_calculator = readFile "98.in" >>= return . solve . wordListLineRead

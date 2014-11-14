@@ -1,3 +1,5 @@
+module Problems.Prob93 where
+
 import Data.List
 import Data.Maybe
 import Data.Ratio
@@ -39,5 +41,5 @@ possibleResults l = dropWhile (<1) . map numerator . filter (\x -> denominator x
 value :: Integer -> Integer -> Integer -> Integer -> Int
 value a b c d = length . takeWhile id . zipWith (==) [1..] . possibleResults $ map (Just . toRational) [a,b,c,d]
 
-main :: IO ()
-main = putStrLn . snd $ maximum [(value a b c d, concatMap show [a,b,c,d]) | d <- [0..9], c <- [0..d-1], b <- [0..c-1], a <- [0..b-1]]
+answer :: Integer
+answer = read . snd $ maximum [(value a b c d, concatMap show [a,b,c,d]) | d <- [0..9], c <- [0..d-1], b <- [0..c-1], a <- [0..b-1]]

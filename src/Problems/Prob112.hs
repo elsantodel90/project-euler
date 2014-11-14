@@ -1,3 +1,5 @@
+module Problems.Prob112 where
+
 import Elsantodel90.Digits
 
 bouncy :: Integer -> Bool
@@ -13,5 +15,5 @@ ratios :: [(Integer, Integer)]
 ratios = tail . scanl f (0,0) $ map bouncy [1..]
            where f (k,n) isBouncy = (k + beta isBouncy, n+1)
 
-main :: IO ()
-main = print . snd . head $ filter (\(k,n) -> 100*k == 99*n) ratios
+
+answer = snd . head $ filter (\(k,n) -> 100*k == 99*n) ratios

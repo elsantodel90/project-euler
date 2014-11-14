@@ -1,3 +1,5 @@
+module Problems.Prob88 where
+
 import Data.List
 import Data.Array.Unboxed
 import Elsantodel90.Primes
@@ -30,6 +32,6 @@ minimalGood k = head $ filter (kGood k) [k..]
 sortUniq :: [Int] -> [Int]
 sortUniq = map head . group . sort
 
-main :: IO ()
-main = print . sum . sortUniq $ map minimalGood [2..12000]
+
+answer = sum . sortUniq $ map minimalGood [2..12000]
                        

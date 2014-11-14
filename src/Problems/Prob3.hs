@@ -1,3 +1,4 @@
+module Problems.Prob3 where
 search :: Integer -> Integer -> Integer
 search n k | k*k > n        = n
            | n `mod` k == 0 = search (n `div` k) k
@@ -6,5 +7,4 @@ search n k | k*k > n        = n
 largestPrimeFactor :: Integer -> Integer
 largestPrimeFactor n = search n 2
 
-main :: IO ()
-main = print $ largestPrimeFactor 600851475143
+answer = largestPrimeFactor 600851475143

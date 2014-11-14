@@ -1,3 +1,4 @@
+module Problems.Prob23 where
 import Elsantodel90.Primes
 import Data.Array
 
@@ -22,5 +23,5 @@ abundants = filter abundant abundantRange
 abundantArray :: Array Integer Bool
 abundantArray = accumArray (\_ newVal -> newVal) True (1,upperBound) . flip zip (repeat False) $ filter (<= upperBound) [a+b | a <- abundants, b <- abundants]
 
-main :: IO ()
-main = print . sum  $ filter (abundantArray !) abundantRange
+
+answer = sum  $ filter (abundantArray !) abundantRange

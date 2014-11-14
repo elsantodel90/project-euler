@@ -1,3 +1,4 @@
+module Problems.Prob58 where
 import Data.List
 import Elsantodel90.Primes
 import Elsantodel90.IntPot
@@ -26,6 +27,6 @@ kAndPrimeCount = tail $ iterate f (0,0)
 ratioUnder10 :: (Integer, Integer) -> Bool
 ratioUnder10 (k,c) = 10 * c  < 1 * (1+4*k)
 
-main :: IO ()
-main = print . (\(k,_) -> 2*k+1) . head $ filter ratioUnder10 kAndPrimeCount
+
+answer = (\(k,_) -> 2*k+1) . head $ filter ratioUnder10 kAndPrimeCount
 

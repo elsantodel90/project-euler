@@ -1,3 +1,4 @@
+module Problems.Prob31 where
 import Data.Array
 
 coins :: [Int]
@@ -9,5 +10,4 @@ ways = array ((0,0),(200, length coins)) $
                  [ ((n,length coins),0) | n <- [1..200]] ++
                  [ ((n,k), ways ! (n,k+1) + if coin <= n then ways ! (n-coin,k) else 0)  | n <- [1..200], k <- [0..length coins - 1], let coin = coins !! k]
                  
-main :: IO ()
-main = print $ ways ! (200,0)
+answer = ways ! (200,0)

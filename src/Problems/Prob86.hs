@@ -1,3 +1,5 @@
+module Problems.Prob86 where
+
 import Elsantodel90.Pythagorean
 import Elsantodel90.Numeric
 
@@ -18,6 +20,6 @@ f a = sum [countSolutions a x y + countSolutions a y x | l <- triplesWithMaxX xB
         where xBound            = integerSqrt a (3 * a)
               notTooBig (x,y,_) = min x y <= a
 
-main :: IO ()
-main = print . fst . head . dropWhile ((<1000000) . snd) $ iterate step (0,0)
+
+answer = fst . head . dropWhile ((<1000000) . snd) $ iterate step (0,0)
         where step (i,s) = (i+1, f (i+1) + s)

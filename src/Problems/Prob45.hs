@@ -1,3 +1,4 @@
+module Problems.Prob45 where
 
 triangles :: [Integer]
 triangles   = [(n * (n+1)) `div` 2 | n <- [1..]]
@@ -18,5 +19,4 @@ intersection a@(x:xs) b@(y:ys) | x < y     = intersection xs b
 superNumbers :: [Integer]
 superNumbers = foldr1 intersection [triangles,pentagonals,hexagonals]
 
-main :: IO ()
-main = print $ superNumbers !! 2
+answer = superNumbers !! 2

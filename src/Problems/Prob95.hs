@@ -1,3 +1,5 @@
+module Problems.Prob95 where
+
 import Data.Set
 import Data.List hiding (insert)
 import Elsantodel90.Primes
@@ -29,8 +31,8 @@ valAux processing n seen
 val :: Int -> Set Int -> ((Int, Int), Set Int)
 val = valAux empty
 
-main :: IO ()
-main = print . negate . snd . fst $ Data.List.foldl' combine ((0 , 0), empty) [1..maxElement]
+
+answer = negate . snd . fst $ Data.List.foldl' combine ((0 , 0), empty) [1..maxElement]
             where combine (bestPair, seen) n = seq newBest (newBest, newSeen)
                         where (p, newSeen) = val n seen
                               newBest      = max bestPair p

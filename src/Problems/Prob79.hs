@@ -1,3 +1,5 @@
+module Problems.Prob79 where
+
 import Data.List
 
 subsequence :: String -> String -> Bool
@@ -15,5 +17,5 @@ works input l = all (\s -> subsequence s l) input
 candidates :: [String]
 candidates = permutations "01236789"
 
-main :: IO ()
-main = readFile "79.in" >>= mapM_ putStrLn . (\input -> filter (works input) candidates) . lines
+answer_calculator :: IO Integer
+answer_calculator = readFile "79.in" >>= return . read . head . (\input -> filter (works input) candidates) . lines

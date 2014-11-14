@@ -1,3 +1,5 @@
+module Problems.Prob84 where
+
 import Data.List
 import Text.Printf
 import Elsantodel90.Numeric
@@ -100,7 +102,7 @@ compact l = zipWith3 (\a b c -> a+b+c) l1 l2 l3
               where (l1,rest) = splitAt 40 l
                     (l2,l3)   = splitAt 40 rest
 
-main :: IO ()
-main = putStrLn . concatMap (printf "%0.2d" :: Int -> String) . map snd . take 3 . sortBy (flip compare) 
+answer :: Integer
+answer = read . concatMap (printf "%0.2d" :: Int -> String) . map snd . take 3 . sortBy (flip compare) 
                 . flip zip [0..] . compact . solveLinearSystem . (replicate 121 1.0:) . tail . equations 
                 . groupBy (\(a,_,_) (b,_,_) -> a == b) $ transitions 4

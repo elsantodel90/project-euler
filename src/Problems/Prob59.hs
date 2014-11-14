@@ -1,3 +1,4 @@
+module Problems.Prob59 where
 import Data.Bits
 import Data.Char
 import Elsantodel90.Parsing
@@ -21,5 +22,5 @@ candidateKey = zipWith xor (map ord "the") candidateForThe
 decipher :: [Int] -> [Int] -> String
 decipher key = map chr . zipWith xor (cycle key)
 
-main :: IO ()
-main = readFile "59.in" >>= print . sum . map ord . decipher candidateKey . map read . split ',' . init
+answer_calculator :: IO Int
+answer_calculator = readFile "59.in" >>= return . sum . map ord . decipher candidateKey . map read . split ',' . init

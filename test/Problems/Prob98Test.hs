@@ -9,4 +9,4 @@ import Test.Framework.TestInterface (Assertion)
 {-# ANN module "HLint: ignore Use camelCase" #-}
 
 test_works :: Assertion
-test_works = assertEqual answer 18769
+test_works = answer_calculator >>= assertEqual 18769

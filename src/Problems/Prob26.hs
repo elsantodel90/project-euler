@@ -1,3 +1,4 @@
+module Problems.Prob26 where
 import Data.List
 import Data.Maybe
 
@@ -17,5 +18,5 @@ l k = pRep - first
               rNum  = lista !! pRep
               first = fromJust $ findIndex (==rNum) lista
 
-main :: IO ()
-main = print . snd . maximum $ [ (l i, i) | i <- [1..999]]
+
+answer = snd . maximum $ [ (l i, i) | i <- [1..999]]

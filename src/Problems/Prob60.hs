@@ -1,3 +1,4 @@
+module Problems.Prob60 where
 import Data.Array.Unboxed
 import Elsantodel90.Primes
 
@@ -30,8 +31,7 @@ friends = array (2,maxToTest) $ map (\p -> (p,filter (works2 p) (takeWhile (<p) 
 areFriends :: Int -> Int -> Bool
 areFriends a b = b `elem` friends ! a
 
-main :: IO ()
-main = print $ minimum  [a+b+c+d+e | a <- interestingPrimes,
+answer = minimum  [a+b+c+d+e | a <- interestingPrimes,
                                      let friendsOfA = friends ! a,
                                      b <- friendsOfA,
                                      c <- takeWhile (<b) friendsOfA, areFriends b c,

@@ -1,3 +1,5 @@
+module Problems.Prob100 where
+
 import Data.Maybe
 import Elsantodel90.Numeric
 import Elsantodel90.IntPot
@@ -22,8 +24,8 @@ tryY y | isSquare root1 = Just $ ((x1^2 + y^2 + 1) `div` 2, x1^2 - y^2)
                  x1     = y + integerSqrt 1 root1
                  x2     = y + integerSqrt 1 root2
 
-main :: IO ()
-main = print . fst . head . catMaybes  $ map tryY [450000..]
+
+answer = fst . head . catMaybes  $ map tryY [450000..]
 
 
 

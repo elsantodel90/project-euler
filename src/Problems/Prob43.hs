@@ -1,3 +1,4 @@
+module Problems.Prob43 where
 import Data.List
 
 primeList :: [Integer]
@@ -13,5 +14,5 @@ isMagical :: [Integer] -> Bool
 isMagical perm = and $ zipWith divides primeList terms
                     where terms       = [num . take 3 $ drop k perm | k <- [0..]]
                           
-main :: IO ()
-main = print . sum . map num . filter isMagical $ permutations [0..9]
+
+answer = sum . map num . filter isMagical $ permutations [0..9]

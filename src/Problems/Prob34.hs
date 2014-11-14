@@ -1,3 +1,4 @@
+module Problems.Prob34 where
 import Data.Array
 import Elsantodel90.Digits
 import Elsantodel90.Combinatorics hiding (factorial)
@@ -13,5 +14,5 @@ factorial = (facts !) . fromInteger
 sumFactDigits :: Integer -> Integer
 sumFactDigits = sum . map factorial . rightToLeftDigits
 
-main :: IO ()
-main = print . sum $ filter (\n -> n == sumFactDigits n) [3..9999999]
+
+answer = sum $ filter (\n -> n == sumFactDigits n) [3..9999999]

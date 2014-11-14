@@ -1,3 +1,4 @@
+module Problems.Prob35 where
 import Data.Array.Unboxed
 import Elsantodel90.Primes
 import Elsantodel90.Digits
@@ -15,5 +16,5 @@ rotations l = take n . map (take n). iterate tail $ cycle l
 superPrime :: Int -> Bool
 superPrime = all (primeArray !) . map build . rotations . rightToLeftDigits
 
-main :: IO ()
-main = print . length $ filter superPrime [2..1000000]
+
+answer = length $ filter superPrime [2..1000000]

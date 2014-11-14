@@ -1,3 +1,4 @@
+module Problems.Prob19 where
 import Data.List
 
 data YearKind = Leap | Normal
@@ -30,5 +31,4 @@ wasSunday year month day = daysFromEpoch year month day `mod` 7 == 6
 twentiethCenturySundays :: [(Integer, Integer)]
 twentiethCenturySundays = [(year,month) | year <- [1901..2000], month <- [0..11], wasSunday year month 0]
 
-main :: IO ()
-main = print $ length twentiethCenturySundays
+answer = length twentiethCenturySundays

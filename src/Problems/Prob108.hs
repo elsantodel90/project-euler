@@ -1,3 +1,5 @@
+module Problems.Prob108 where
+
 import Elsantodel90.Primes
 import Data.Array.Unboxed
 import Data.List
@@ -21,5 +23,4 @@ firstOverN :: Integer -> Integer
 firstOverN n = minimum $ candidates n (2 * n - 1) (genericTake k primes) 1 1
                 where k = primesBound n
 
-main :: IO ()
-main = print $ firstOverN 1000
+answer = firstOverN 1000

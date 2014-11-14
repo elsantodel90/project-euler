@@ -1,3 +1,4 @@
+module Problems.Prob61 where
 import Data.List
 
 polygonal :: Integer -> [Integer]
@@ -17,5 +18,5 @@ findSolutionAcum :: Integer -> Integer -> [Integer] -> [[Integer]] -> [[Integer]
 findSolutionAcum first prev acum [] = if chainable prev first then [acum] else []
 findSolutionAcum first prev acum (s:rest) =  concat [findSolutionAcum first x (x:acum) rest | x <- s, chainable prev x]
 
-main :: IO ()
-main = mapM_ print . map sum $ concatMap findSolution sequencesOrderings
+answer :: Integer
+answer = head . map sum $ concatMap findSolution sequencesOrderings

@@ -1,3 +1,4 @@
+module Problems.Prob49 where
 import Data.List
 import Data.Array.Unboxed
 import Elsantodel90.Primes
@@ -15,6 +16,5 @@ solutions = [ l | base <- [1000..9999], inc <- [1..4500], let s = [base,base+inc
                   length l == 3,
                   all isPrime l,
                   allArePermutations l]
-
-main :: IO ()
-main = putStrLn . concatMap show $ solutions !! 1
+answer :: Integer
+answer = read . concatMap show $ solutions !! 1

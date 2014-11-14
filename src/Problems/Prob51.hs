@@ -1,3 +1,4 @@
+module Problems.Prob51 where
 import Data.Array.Unboxed
 import Elsantodel90.Primes
 
@@ -31,5 +32,5 @@ familyList p = filter ((>= familyLength) . length) . filter (elem p) . map (filt
 magicPrime :: Int -> Bool
 magicPrime = not . null . familyList
 
-main :: IO ()
-main = print . fst . (\x -> (x, familyList x)) . head $ filter magicPrime primes
+
+answer = fst . (\x -> (x, familyList x)) . head $ filter magicPrime primes

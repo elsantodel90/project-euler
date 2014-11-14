@@ -1,3 +1,5 @@
+module Problems.Prob144 where
+
 import Elsantodel90.Geometry hiding ((+),(*),(-),(/),(.*), (^))
 import qualified Elsantodel90.Geometry as G ((+),(*),(-),(/),(.*))
 import Elsantodel90.IntPot
@@ -32,7 +34,7 @@ step (p@(Vector2D px py),v@(Vector2D vx vy)) = (pNew, vNew)
 impactPointIsInside :: (Point, Point) -> Bool
 impactPointIsInside (Vector2D x y ,_) = not $ -0.01 <= x && x <= 0.01 && y > 0.0
 
-main :: IO ()
-main = print . length  . takeWhile impactPointIsInside . tail $ iterate step (p0, v0)
+
+answer = length . takeWhile impactPointIsInside . tail $ iterate step (p0, v0)
          where p0 = Vector2D 0.0 10.1
                v0 = normalize $ Vector2D 1.4 (-9.6) G.- p0

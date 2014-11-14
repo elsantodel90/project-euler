@@ -1,3 +1,4 @@
+module Problems.Prob74 where
 import Data.Array
 import Elsantodel90.Digits
 import Elsantodel90.Combinatorics
@@ -27,5 +28,5 @@ len x = 1 + len (f $ fromInteger x)
 _main2 :: IO ()
 _main2 = mapM_ print $ filter (\x -> f x == toInteger x) [1..1000000]
 
-main :: IO ()
-main = print . length $ filter ((==60) . len) [1..1000000-1]
+
+answer = length $ filter ((==60) . len) [1..1000000-1]

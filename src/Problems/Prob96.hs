@@ -1,3 +1,5 @@
+module Problems.Prob96 where
+
 import Data.Char
 
 threeDigitNumber :: [[Int]] -> Integer
@@ -43,5 +45,5 @@ solveSudoku sudoku = head $ backtracking sudoku nothingCoordinates rows columns 
                       columns = map clean $ traspose sudoku
                       squares = map (map clean) $ [[[sudoku !!! (3*i+x,3*j+y) | x <- [0..2], y <- [0..2]] | j <- [0..2]] | i <- [0..2]]
 
-main :: IO ()
-main = readFile "96.in" >>= print . sum . map (threeDigitNumber . solveSudoku . parseSudoku . tail) . takeWhile (not . null) . map (take 10) . iterate (drop 10) . lines
+answer_calculator :: IO Integer
+answer_calculator = readFile "96.in" >>= return . sum . map (threeDigitNumber . solveSudoku . parseSudoku . tail) . takeWhile (not . null) . map (take 10) . iterate (drop 10) . lines

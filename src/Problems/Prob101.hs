@@ -1,3 +1,5 @@
+module Problems.Prob101 where
+
 import Data.Ratio
 import Elsantodel90.Polynomial
 
@@ -15,5 +17,5 @@ bop :: Int -> Rational
 bop k = kSeq !! (length . takeWhile id $ zipWith (==) nicePolySequence kSeq)
         where kSeq = polySequence $ op k
 
-main :: IO ()
-main = print . sum $ map (numerator . bop) [1..degree nicePolynomial]
+
+answer = sum $ map (numerator . bop) [1..degree nicePolynomial]

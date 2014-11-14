@@ -1,3 +1,5 @@
+module Problems.Prob90 where
+
 import Data.List
 import Elsantodel90.IntPot
 import Prelude hiding ((^))
@@ -28,5 +30,5 @@ allowsSquare s (a,b) = good a b || good b a
 allowsAllSquares :: ([Integer], [Integer]) -> Bool
 allowsAllSquares p = all (\s -> allowsSquare s p) squares
 
-main :: IO ()
-main = print . length $ filter allowsAllSquares [(extend a,extend b) | a <- possibleCubes, b <- possibleCubes, a <= b]
+
+answer = length $ filter allowsAllSquares [(extend a,extend b) | a <- possibleCubes, b <- possibleCubes, a <= b]

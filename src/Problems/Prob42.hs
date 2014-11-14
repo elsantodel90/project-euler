@@ -1,3 +1,4 @@
+module Problems.Prob42 where
 import Data.Char
 import Elsantodel90.Parsing
 
@@ -16,5 +17,5 @@ wordScore = sum . map charScore
 isTriangleWord :: String -> Bool
 isTriangleWord = isTriangleNumber . wordScore
 
-main :: IO ()
-main = readFile "42.in" >>= print . length . filter isTriangleWord . wordListLineRead
+answer_calculator :: IO Int
+answer_calculator = readFile "42.in" >>= return . length . filter isTriangleWord . wordListLineRead

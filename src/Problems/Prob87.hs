@@ -1,3 +1,5 @@
+module Problems.Prob87 where
+
 import Data.List
 import Elsantodel90.Primes
 import Elsantodel90.Numeric
@@ -19,5 +21,4 @@ sortUniq = map head . group . sort
 numberList :: [Int]
 numberList = sortUniq rawNumberList
 
-main :: IO ()
-main = print $ length numberList
+answer = length numberList

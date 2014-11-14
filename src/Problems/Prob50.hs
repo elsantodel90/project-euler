@@ -1,3 +1,4 @@
+module Problems.Prob50 where
 import Data.List
 import Data.Maybe
 import Data.Array.Unboxed
@@ -20,5 +21,5 @@ possibleLength l = case filter isValidPrime . map sum . filter ((==l) . length) 
                       [] -> Nothing
                       li -> Just $ head li
 
-main :: IO ()
-main = print . head . catMaybes $ map possibleLength [upperBound, upperBound-1..1]
+
+answer = head . catMaybes $ map possibleLength [upperBound, upperBound-1..1]

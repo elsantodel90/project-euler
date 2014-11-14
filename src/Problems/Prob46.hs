@@ -1,3 +1,4 @@
+module Problems.Prob46 where
 import Data.Array.IArray
 import Elsantodel90.Primes
 import Elsantodel90.IntPot
@@ -19,5 +20,4 @@ summable _ _ _ = error "BUG! ESTO NUNCA DEBERIA PASAR!!"
 works :: Integer -> Bool
 works n = summable primes (reverse $ takeWhile (<= n) doubledSquares) n
 
-main :: IO ()
-main = print $ filter (not . works) [1,3..] !! 1
+answer = filter (not . works) [1,3..] !! 1

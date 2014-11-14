@@ -1,4 +1,5 @@
+module Problems.Prob16 where
 import Elsantodel90.Digits
 
-main :: IO ()
-main = print . sumDigits $ (2::Integer)^(1000::Int)
+
+answer = sumDigits $ (2::Integer)^(1000::Int)

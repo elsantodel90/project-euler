@@ -1,3 +1,5 @@
+module Problems.Prob77 where
+
 import Data.Array.Unboxed
 import Elsantodel90.Primes
 
@@ -15,5 +17,5 @@ dpArray = array ((0,0), (maxN, maxN)) $ recursiveCase ++ baseCase
 solve :: Int -> Int
 solve n = dpArray ! (n,n)
 
-main :: IO ()
-main = print . head $ filter ((>=5000) . solve) [1..]
+
+answer = head $ filter ((>=5000) . solve) [1..]

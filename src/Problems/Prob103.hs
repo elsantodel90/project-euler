@@ -1,3 +1,5 @@
+module Problems.Prob103 where
+
 import Data.Set (Set, singleton, union, intersection, empty, findMax, findMin)
 import qualified Data.Set as Set
 import Data.Maybe
@@ -32,5 +34,5 @@ backtracking currentSum currentNumbers remainingNumbers bestPair nextInteger set
 optimumSpecialSumSetWithUpperbound :: Integer -> Integer -> [Integer]
 optimumSpecialSumSetWithUpperbound n upperBound = reverse . snd $ backtracking 0 [] n (upperBound, []) 1 [singleton 0]
 
-main :: IO()
-main = putStrLn . setString $ optimumSpecialSumSetWithUpperbound 7 256
+answer :: Integer
+answer = read . setString $ optimumSpecialSumSetWithUpperbound 7 256

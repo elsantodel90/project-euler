@@ -1,4 +1,4 @@
+module Problems.Prob7 where
 import Elsantodel90.Primes
 
-main :: IO ()
-main = print $ primesUpTo 200000 !! 10000
+answer = primesUpTo 200000 !! 10000

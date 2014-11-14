@@ -1,3 +1,4 @@
+module Problems.Prob27 where
 import Data.Array.Unboxed
 import Elsantodel90.Primes
 import Elsantodel90.IntPot
@@ -15,6 +16,7 @@ isPrime n = n >= 2 && primeArray ! (fromInteger n)
 value :: Integer -> Integer -> Int
 value a b = length . takeWhile isPrime $ poly a b
 
-main :: IO ()
-main = print . snd $ maximum [(value a b, a*b) | a <- interval, b <- interval]
+
+answer :: Integer
+answer = snd $ maximum [(value a b, a*b) | a <- interval, b <- interval]
         where interval = [-999..999]

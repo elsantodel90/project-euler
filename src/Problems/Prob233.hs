@@ -1,3 +1,5 @@
+module Problems.Prob233 where
+
 {-
 Si n = 2k   es par  , f n = 4 * prod(b + 1), siendo los b los exponentes de los primos 4k+1 en la fact de 2k^2 = n^2 / 2
 Si n = 2k+1 es impar, f n = 4 * prod(b + 1), siendo los b los exponentes de los primos 4k+1 en la fact de 4k(k+1) + 1 = n^2
@@ -62,6 +64,6 @@ superList = superList1 ++ superList2 3 7 ++ superList2 2 10
 countSolutions :: Integer -> Integer
 countSolutions x = x * multiplierCount ! (fromInteger $ upperBound `div` x)
 
-main :: IO ()
-main = print . sum $ map countSolutions superList
+
+answer = sum $ map countSolutions superList
 

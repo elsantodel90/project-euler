@@ -1,3 +1,4 @@
+module Problems.Prob54 where
 import Data.Char
 import Data.List
 import Data.Maybe
@@ -90,5 +91,5 @@ score hand = head . catMaybes . zipWith (\x m -> fmap (x:) m) [1,0..] $ map ($ha
 player1Wins :: Game -> Bool
 player1Wins (hand1, hand2) = score hand1 > score hand2
 
-main :: IO ()
-main = readFile "54.in" >>= print . length . filter player1Wins . map parseGame . lines
+answer_calculator :: IO Int
+answer_calculator = readFile "54.in" >>= return . length . filter player1Wins . map parseGame . lines

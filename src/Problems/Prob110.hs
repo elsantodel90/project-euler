@@ -1,3 +1,5 @@
+module Problems.Prob110 where
+
 import Elsantodel90.Primes
 import Data.Array.Unboxed
 import Data.List
@@ -30,5 +32,4 @@ firstOverN :: Integer -> Integer
 firstOverN n = backtrack 0 (2 * n - 1) (reverse $ genericTake k primes) 1 1
                 where k = primesBound (2 * n - 1)
 
-main :: IO ()
-main = print $ firstOverN 4000000
+answer = firstOverN 4000000

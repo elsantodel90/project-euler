@@ -1,3 +1,4 @@
+module Problems.Prob122 where
 
 upperBound :: Int -> Int
 upperBound n = 2*k
@@ -27,5 +28,5 @@ backtrack n bestSoFar products previous candidates
                withoutCandidate = backtrack n bestSoFar products previous remainingCandidates
                intermediateBest = min withoutCandidate bestSoFar
 
-main :: IO ()
-main = print . sum $ map bestChainFor [1..200]
+
+answer = sum $ map bestChainFor [1..200]

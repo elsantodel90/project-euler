@@ -1,3 +1,5 @@
+module Problems.Prob102 where
+
 import Elsantodel90.Parsing
 import Elsantodel90.Geometry hiding ((*))
 
@@ -14,5 +16,5 @@ containsZero :: [Vector2D Integer] -> Bool
 containsZero [p1,p2,p3] = sameSign (p1 ^ p2) (p2 ^ p3) (p3 ^ p1)
 containsZero _          = error "containsZero should be applied to a list of exactly three elements"
 
-main :: IO ()
-main = readFile "102.in" >>= print . length . filter containsZero . map parse . lines
+answer_calculator :: IO Int
+answer_calculator = readFile "102.in" >>= return . length . filter containsZero . map parse . lines

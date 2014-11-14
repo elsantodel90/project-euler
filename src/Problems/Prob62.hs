@@ -1,3 +1,4 @@
+module Problems.Prob62 where
 import Elsantodel90.IntPot
 import Prelude hiding ((^))
 import qualified Data.Map as Map
@@ -22,5 +23,5 @@ cubesMappings = scanl f (Map.empty,0) cubes
 target :: Int                            
 target = 5
 
-main :: IO ()
-main = mapM_ print . map (minimum . snd) . Map.toList . Map.filter ((==target) . length) . fst . head . filter ((==target) . snd) $ cubesMappings
+answer :: Integer
+answer = head . map (minimum . snd) . Map.toList . Map.filter ((==target) . length) . fst . head . filter ((==target) . snd) $ cubesMappings
