@@ -1,12 +1,45 @@
 name:           project-euler
 version:        0.1
-cabal-version:  >=1.2
+cabal-version:  >= 1.2
 build-type:     Simple
-author:         santo
+author:         Agustín Santiago Gutiérrez
+maintainer:     Agustín Santiago Gutiérrez
 
-executable project-euler
-  hs-source-dirs:  src
-  main-is:         Main.hs
-  build-depends:   base >= 4
-  ghc-options:     -Wall
+library 
+  build-depends:    
+                   base >=4.6.0 && <4.7,
+                   array >=0.4.0 && <0.5,
+                   containers >=0.5.0 && <0.6,
+                   random >=1.0.1 && <1.1,
+                   HUnit >=1.2.5 && <1.3
+  hs-source-dirs:   src
+  ghc-options:      -Wall
+  exposed-modules:  
+                   Elsantodel90.BinarySearch,
+                   Elsantodel90.Combinatorics,
+                   Elsantodel90.ContinuedFraction,
+                   Elsantodel90.Digits,
+                   Elsantodel90.Geometry,
+                   Elsantodel90.Graph,
+                   Elsantodel90.IntPot,
+                   Elsantodel90.ModularArithmetic,
+                   Elsantodel90.Numeric,
+                   Elsantodel90.Parsing,
+                   Elsantodel90.Polynomial,
+                   Elsantodel90.Primes,
+                   Elsantodel90.Pythagorean,
+                   Elsantodel90.RomanNumerals
+  other-modules:    Prob1
+
+test-suite TestSuite1
+  type:            exitcode-stdio-1.0
+  main-is:         TestSuite1.hs
+  ghc-options:     -Wall -rtsopts
+  build-depends:   base >= 4, HTF > 0.9
+  other-modules:   
+                  Prob1,
+                  Prob1Test
+  hs-source-dirs:  
+                  test,
+                  src
 
