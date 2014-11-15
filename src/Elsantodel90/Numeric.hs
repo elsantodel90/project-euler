@@ -31,7 +31,7 @@ gaussianElimination matrix = row : gaussianElimination (map zeroRow (tail nonZer
                         where nonZero = ensureNonZero matrix
                               row     = head nonZero
                               d       = head row
-                              zeroRow r = tail $ lambdaAplusB (- (head r) / d ) row r
+                              zeroRow r = tail $ lambdaAplusB (- head r / d ) row r
 
 backwardSubstitution :: (Fractional a, Ord a) => [[a]] -> [a]
 backwardSubstitution = foldr step []

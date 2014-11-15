@@ -31,4 +31,5 @@ allowsAllSquares :: ([Integer], [Integer]) -> Bool
 allowsAllSquares p = all (\s -> allowsSquare s p) squares
 
 
+answer :: Int
 answer = length $ filter allowsAllSquares [(extend a,extend b) | a <- possibleCubes, b <- possibleCubes, a <= b]

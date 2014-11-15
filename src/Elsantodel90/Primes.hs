@@ -15,6 +15,8 @@ import Data.Array.ST
 import Control.Monad.ST
 import Control.Monad
 import Elsantodel90.ModularArithmetic
+import Control.Conditional (whenM)
+import Control.Applicative ((<$>))
 
 sqr :: Num a => a -> a
 sqr x = x*x
@@ -26,9 +28,8 @@ primesUpToArray n = runSTUArray $
                 arr <- newArray (0,n) True :: ST s (STUArray s Int Bool)
                 writeArray arr 0 False
                 writeArray arr 1 False
-                let work i = readArray arr i >>= (\isP -> if isP
-                                then forM_ [i*i, i*i+i..n] (\k -> writeArray arr k False) 
-                                else return () )
+                let work i = whenM (readArray arr i) $
+                                forM_ [i*i, i*i+i..n] (\k -> writeArray arr k False)
                 mapM_ work $ takeWhile ((<= n) . sqr) [2..n]
                 return arr
 
@@ -36,9 +37,8 @@ factorArray :: Int -> UArray Int Int
 factorArray n = runSTUArray $
                do
                 arr <- newArray (0,n) 1 :: ST s (STUArray s Int Int)
-                let work i = readArray arr i >>= (\f -> if f == 1
-                                then forM_ [i*i, i*i+i..n] (\k -> writeArray arr k i) 
-                                else return () )
+                let work i = whenM ((== 1) <$> readArray arr i) $
+                                forM_ [i*i, i*i+i..n] (\k -> writeArray arr k i)
                 mapM_ work $ takeWhile ((<= n) . sqr) [2..n]
                 return arr
 
@@ -96,10 +96,10 @@ smallerPrimes = primesUpToArray $ fromInteger sieveSize
 -- Rabin - Miller
 isPrimeWithPrec :: Int -> Integer -> Bool
 isPrimeWithPrec prec n | n <= sieveSize = smallerPrimes ! fromInteger n
-                       | otherwise      = not . or . map (rabinMillerWitness n) . take prec $ randomSequence n
+                       | otherwise      = not . any (rabinMillerWitness n) . take prec $ randomSequence n
 
 rabinMillerWitness :: Integer -> Integer -> Bool
-rabinMillerWitness n a = ad /= 1 && not (elem (n-1) . take s $ iterate (modsqr n) ad)
+rabinMillerWitness n a = ad /= 1 && (notElem (n-1) . take s $ iterate (modsqr n) ad)
                             where ad = modexp n a d
                                   s = length evens
                                   (evens, d:_) = span even div2

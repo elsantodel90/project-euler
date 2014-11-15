@@ -8,6 +8,7 @@ module Elsantodel90.Combinatorics(choose,
 import Data.Array.ST
 import Control.Monad.ST
 import Data.Array
+import Control.Applicative ((<$>))
 
 -- n choose k, factorials
     
@@ -48,7 +49,7 @@ partitionArrayOp op n = runSTArray $
                           arr <- newArray_ (0,n) :: ST s (STArray s Int Integer)
                           writeArray arr 0 1
                           let work i = calc i >>= writeArray arr i >> forceEval i
-                              calc i = fmap (strangeSum op) $ mapM (readArray arr) indexes
+                              calc i = strangeSum op <$> mapM (readArray arr) indexes
                                         where indexes = [i - k | k <- takeWhile (<=i) generalizedPentagonals]
                               forceEval i = readArray arr i >>= (\x -> seq x (return ()))
                           mapM_ work [1..n]

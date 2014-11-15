@@ -20,7 +20,7 @@ varSymbol = "X"
 
 coefficientsShow :: (Eq a, Num a, Show a) => [a] -> String
 coefficientsShow [] = "0"
-coefficientsShow l  = concat . intersperse " + " . filter (not . null) . map monomialShow $ zip [(0 :: Integer)..] l
+coefficientsShow l  = intercalate " + " . filter (not . null) . map monomialShow $ zip [(0 :: Integer)..] l
                             where monomialShow (_,0) = ""
                                   monomialShow (0,a) = show a
                                   monomialShow (1,a) = condShow a ++ varSymbol
